@@ -1,0 +1,33 @@
+<%= form_for(@cancion) do |f| %>
+  <% if @cancion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cancion.errors.count, "error") %> prohibited this cancion from being saved:</h2>
+
+      <ul>
+      <% @cancion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :letra %><br>
+    <%= f.text_area :letra %>
+  </div>
+  <div class="field">
+    <%= f.label :genero %><br>
+    <%= f.text_field :genero %>
+  </div>
+  <div class="field">
+    <%= f.label :cantante_id %><br>
+    <%= f.select("cantante_id",Cantante.all.collect{|l| [l.nombre, l.id ] }, {include_blank: 'Seleccione Usuario'}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

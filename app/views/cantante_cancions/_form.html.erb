@@ -1,0 +1,25 @@
+<%= form_for(@cantante_cancion) do |f| %>
+  <% if @cantante_cancion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cantante_cancion.errors.count, "error") %> prohibited this cantante_cancion from being saved:</h2>
+
+      <ul>
+      <% @cantante_cancion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cantante_id %><br>
+    <%= f.text_field :cantante_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cancion_id %><br>
+    <%= f.text_field :cancion_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

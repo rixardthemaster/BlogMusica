@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cantante Cancions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cantante</th>
+      <th>Cancion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cantante_cancions.each do |cantante_cancion| %>
+      <tr>
+        <td><%= cantante_cancion.cantante %></td>
+        <td><%= cantante_cancion.cancion %></td>
+        <td><%= link_to 'Show', cantante_cancion %></td>
+        <td><%= link_to 'Edit', edit_cantante_cancion_path(cantante_cancion) %></td>
+        <td><%= link_to 'Destroy', cantante_cancion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cantante cancion', new_cantante_cancion_path %>
